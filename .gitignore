@@ -10,5 +10,4 @@
 *.bcf-SAVE-ERROR
 *.run.xml
 *.synctex.gz
-*.pdf
 build/
