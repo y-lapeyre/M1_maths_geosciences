@@ -1,0 +1,168 @@
+\chapter{Algèbre Linéaire}
+
+\section{C'est quoi ?}
+
+\section{Espaces vectoriels}
+\defn{Groupe}{
+    Soit $E$ un ensemble muni d'une loi de composition interne  $*$, c'est-à-dire une  application $E \times E \rightarrow E$. On dit que ( $E, *$ ) est un groupe si:
+    \begin{itemize}
+        \item La loi $*$ est associative i.e. : $\forall(x, y, z) \in E^3,(x * y) * z=x *(y * z)$
+        \item $E$ possède un élément neutre pour $*$ i.e. : $\exists e \in E, \forall x \in E, x * e=e * x=x$
+        \item Chaque élément de $E$ possède un symétrique dans $E$ pour $*: \forall x \in E, \exists y \in E, x * y= y * x=e$
+    \end{itemize}
+}
+
+Si de plus la loi $*$ est commutative, c'est-à-dire si : $\forall(x, y) \in E^2, x * y=y * x$, alors on dit que ( $E, *$ ) est un groupe abélien.
+
+\defn{Espace vectoriel sur un corps commutatif $\mathbb{K}$}{
+    Soit $E$ un ensemble muni d'une loi de composition interne + et d'une loi externe notée . (i.e. une application de $\mathbb{K} \times E$ dans $E$ qui à ( $\alpha, x$ ) associe $\alpha . x$ ). On dit que ( $E,+,$. ) est un espace vectoriel si :
+    \begin{itemize}
+        \item $(E,+)$ est un groupe abélien
+        \item $\forall(x, y) \in E^2, \forall(\alpha, \beta) \in \mathbb{K}^2$ :
+$$
+\begin{aligned}
+(\alpha+\beta) \cdot x & =\alpha \cdot x+\beta \cdot x \\
+\alpha \cdot(x+y) & =\alpha \cdot x+\alpha \cdot y \\
+\alpha \cdot(\beta \cdot x) & =(\alpha \beta) \cdot x \\
+1 \cdot x & =x .
+\end{aligned}
+$$
+    \end{itemize}
+}
+
+Un élément d'un espace vectoriel s'appelle un vecteur. Lorsqu'un espace vectoriel est de dimension finie, il admet des bases.
+
+\defn{Base d'un espace vectoriel}{
+    Une base d'un espace vectoriel est une famille de vecteurs $\left(v_1, v_2, \ldots, v_n\right)$ telle que :
+    \begin{itemize}
+        \item libre, i.e. tous les vecteurs sont linéairement indépendants:
+        $$
+        \forall\left(\lambda_i\right)_i \in \mathbb{K}^n \mid \sum_{i \in I} \lambda_i x_i=0 \Rightarrow \forall i \in I, \lambda_i=0
+        $$
+        \item génératrice, i.e. tout élément de $E$ est combinaison linéaire des $x_i$, c'est-à-dire :
+
+        $$
+        \forall x \in E, \exists\left(\lambda_i\right)_{i \in I} \in \mathbb{K}^n \mid x=\sum_{i \in I} \lambda_i x_i
+        $$
+    \end{itemize}
+}
+
+\section{Applications linéaires et matrices}
+Les applications linéaires sont tout simplement les fonction allant d'un espace vectoriel à un autre. Les matrices sont tout naturellment des représentations d'applications linéaires dans des bases spécifiques.\\
+
+\defn{Matrice}{
+    Soient $n$ et $p$ deux entiers naturels non nuls et les ensembles $I=\{1,2, \ldots, n\}$ et $J=\{1,2, \ldots, p\}$. On appelle matrice à $n$ lignes et $p$ colonnes à éléments dans un corps commutatif $\mathbb{K}$ ou matrice ( $n, p$ ) une application M de $I \times J$ dans $\mathbb{K}$. L'image du couple $(i, j)$ se note $\alpha_{i j}$ et s'appelle un élément de la matrice M . Il est d'usage de définir une matrice par la liste de ses éléments disposés sous la forme de tableau:
+$$
+\mathrm{M}=\left(\begin{array}{ccccc}
+\alpha_{11} & \cdots & \alpha_{1 j} & \cdots & \alpha_{1 p} \\
+\vdots & & \vdots & & \vdots \\
+\alpha_{i 1} & \cdots & \alpha_{i j} & \cdots & \alpha_{i p} \\
+\vdots & & \vdots & & \vdots \\
+\alpha_{n 1} & \cdots & \alpha_{n j} & \cdots & \alpha_{n p}
+\end{array}\right)=\left(\alpha_{i j}\right)_{(i, j) \in I \times J}
+$$
+}
+
+
+
+On note $\mathcal{M}_{(n, p)}(\mathbb{K})$ l'ensemble des matrices de rangs ( $n, p$ ) à valeurs dans $\mathbb{K}$. Le Vecteur-colonne d'une matrice est synonyme de colonne de la matrice. De même, le vecteur-ligne d'une matrice est synonyme de ligne de la matrice.
+
+
+Soient $E$ et $F$ deux $\mathbb{K}$-espaces vectoriels de dimensions respectives $p \geq 1$ et $n \geq 1$. Soient $\mathcal{B}=\left(e_1, \ldots, e_p\right)$ et $\mathcal{B}^{\prime}=\left(e_1^{\prime}, \ldots, e_n^{\prime}\right)$ des bases de $E$ et $F$ et soit $f$ une application linéaire de $E$ vers $F$.
+
+Comme $\mathcal{B}^{\prime}$ est une base de $F$, pour tout élément $j \in\{1, \ldots, p\}$, on dispose de $\left\{\alpha_{1 j}, \alpha_{2 j}, \ldots, \alpha_{n j}\right\} \in \mathbb{K}^n$ tels que:
+
+$$
+f\left(e_j\right)=\alpha_{1 j} e_1^{\prime}+\alpha_{2 j} e_2^{\prime}+\ldots+\alpha_{n j} e_n^{\prime}=\sum_{i=1}^n \alpha_{i j} e_i^{\prime}
+$$
+
+
+La matrice $(n, p)$ définie par $M=\left(\alpha_{i j}\right)$ contient donc les coordonnés des images $\left\{f\left(e_1\right), \ldots, f\left(e_p\right)\right\}$ dans la base $\mathcal{B}^{\prime}$ de $F$. On dit que c'est la matrice associée à $f$ relativement aux bases $\mathcal{B}$ et $\mathcal{B}^{\prime}$. On la note $M_{\mathcal{B}, \mathcal{B}^{\prime}}(f)$.
+
+Si on se donne deux bases $\mathcal{B}$ et $\mathcal{B}^{\prime}$ de $E$ et $F$, une application linéaire est donc entièrement déterminée par sa matrice associée dans ces bases.
+Inversement, on peut toujours voir une matrice comme la matrice d'une certaine application linéaire dans une certaine base de $E$ et de $F$.\\
+
+Remarques importantes:
+\begin{itemize}
+    \item si $E, F$ et $G$ sont trois $\mathbb{K}$-espaces vectoriels de dimensions respectives $p, n, k$ et de bases $\mathcal{B}, \mathcal{B}^{\prime}, \mathcal{B}^{\prime \prime}$ et si $f: E \rightarrow F$ et $g: F \rightarrow G$ sont deux applications linéaires alors les matrices $A$ et $B$ de $f$ et $g$ sont de dimensions $n \times p$ et $k \times n$ respectivement.
+    De plus, l'application linéaire $h=g \circ f$ a pour matrice $B \times A$ qui est de dimension $k \times p$. Multiplier deux matrices revient donc à composer les deux endomorphismes associés.
+    \item Lorsque $f$ est un endomorphisme de $E(f: E \rightarrow E)$ alors les bases $\mathcal{B}$ et $\mathcal{B}^{\prime}$ sont confondues, et si $E$ est de dimension $n \in E$ alors la matrice de $f$ dans la base $\mathcal{B}$ est de taille $n \times n$. Si $f$ et $g$ sont deux endormophismes de $E$ de matrices $A$ et $B$, alors l'endomorphisme $f+g$ a pour matrice $A+B$.
+\end{itemize}
+
+\section{Manipuler des matrices}
+\subsection{Opérations élémentaires}
+\subsubsection*{Addition}
+La somme de deux matrices est la somme de leurs coefficients.
+
+\subsubsection*{Produit}
+
+Pour $A \in M_{m n}, A \in M_{n p}$, on définit le produit des deux matrices $A$ et $B$ comme la matrice $C \in \mathcal{M}_{m p}$ où les coefficients $\left(c_{i j}\right)_{i, j}$ sont calculés comme :
+
+$$
+c_{i j}=\sum_{k=1}^n a_{i k} b_{k j} .
+$$
+
+
+On notera dans ce cas $A B=C$. Le produit de deux matrices est non commutatif : on ne peut pas calculer BA de façon triviale à partir de AB (il est d'ailleurs probable que BA n'existe pas)
+
+\subsubsection*{Transposition}
+la transposée d'une matrice de rang ( $n, p$ ) est une matrice de rang ( $p, n$ ) qui a comme lignes les colonnes de la matrice initiale, et comme colonnes les lignes de la matrice initiale.
+
+\subsection{Déterminant}
+\subsection{Inverse}
+
+
+\section{Lien entre matrices et systèmes linéaires}
+
+\subsection{Sytème $2 \times 2$}
+
+Considérons un système linéaire de deux équations à deux inconnues. On note $a_{i j}$ et, $b_i$ les coefficients (réels ou complexes) et ( $x, y$ ) les inconnues. On écrit alors le système comme :
+
+$$
+\left\{\begin{array}{l}
+a_{11} x+a_{12} y=b_1 \\
+a_{21} x+a_{22} y=b_2
+\end{array}\right.
+$$
+
+
+Si $\left(a_{11}, a_{12}\right) \neq(0,0)$ et $\left(a_{21}, a_{22}\right) \neq(0,0)$, alors les solutions sont les coordonnées de l'intersection des deux droites de vecteur directeur $\vec{u}\left(a_{12},-a_{11}\right)$ et $\vec{v}\left(a_{22},-a_{21}\right)$. Si les deux droites sont colinéaires, alors $a_{11} a_{22}-a_{21} a_{12}=0$, c'est à dire le déterminant du système est nul, et les solutions sont donc soit l'ensemble nul, soit une infinité de points. On en déduit que le système admet une solution unique si et seulement si son déterminant est non nul.
+
+Résoudre un tel système revient en fait à résoudre le problème matriciel suivant :
+
+$$
+\left(\begin{array}{ll}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{array}\right)\binom{x}{y}=\binom{b_1}{b_2}
+$$
+
+qui peut s'écrire, en identifiant $A=\left(\begin{array}{ll}a_{11} & a_{12} \\ a_{21} & a_{22}\end{array}\right), X=\binom{x}{y}$ et $B=\binom{b_1}{b_2}$ :
+
+$$
+A X=B
+$$
+
+
+Cela revient à chercher le vecteur $X$ de $\mathbb{R}^2$ qui a pour image $B$ par l'endomorphisme de matrice associée $A$ dans la base canonique.
+
+Pour trouver la solution du problème, c'est-à-dire le vecteur $X=\binom{x}{y}$, on multiplie chaque membre par l'inverse de $A, A^{-1}$, si elle existe, ce qui donne : $A^{-1} A X=A^{-1} B \Longrightarrow X=A^{-1} B$. On remarquera que $A^{-1}$ n'existe que si son déterminant (c'est-à-dire le déterminant du système) est différent de 0 .
+
+\subsection{Système $n \times n$}
+
+Considérons maintenant un système linéaire de $n$ équations à $n$ inconnues. on le notera sous la forme :
+
+$$
+\left\{\begin{array}{cccc}
+a_{11} x_1 & +\cdots+ & a_{1 n} x_n & =b_1 \\
+\vdots & & \vdots & \\
+a_{n 1} x_1 & +\cdots+ & a_{n n} x_n & =b_n
+\end{array}\right.
+$$
+
+- On parle de système homogène pour $\left(b_1, b_2, \cdots, b_p\right)=(0, \cdots, 0)$. Un système homogène admet toujours au moins la solution triviale le n-uplet nul.
+- Pour résoudre le système, on utilisera la méthode du pivot de Gauss, en cherchant à obtenir un système triangulaire (supérieur ou inférieur) en faisant des opérations élémentaires sur les lignes. Les opérations élémentaires possibles sont :
+- l'échange de deux lignes. qui se note : $L_1 \Leftrightarrow L_2$;
+- le remplacement d'une ligne par une combinaison linéaire de l'ensemble des lignes, qui se note : $L_i \Leftarrow \sum_k L_k \lambda_k$. Le coefficient $\lambda_i$ (de la ligne en cours) ne peut pas être nul.
+- Mise sous forme matricielle d'un système linéaire: On peut écrire le système linéaire sous la forme d'un produit d'une matrice des coefficients $\left(a_{i j}\right)_{i, j}$ avec le vecteur colonne des inconnues ( $x_i$ ) égal au second membre sous la forme d'un vecteur colonne : $A X=B$, avec : $A=\left(\begin{array}{ccc}a_{11} & +\cdots+ & a_{1 n} \\ \vdots & & \vdots \\ a_{n 1} & +\cdots+ & a_{n n}\end{array}\right), X=\left(\begin{array}{c}x_1 \\ \vdots \\ x_n\end{array}\right)$ et $B=\left(\begin{array}{c}b_1 \\ \vdots \\ b_n\end{array}\right)$.
+On peut ensuite calculer l'inverse de la matrice carrée $A$, si elle existe. Le calcul de cette matrice inverse fait intervenir le calcul du déterminant de $A$, ce qui se fait par transformation sur les lignes de $A$, un peu comme la résolution "à la main" du système. La solution est ensuite donnée par : $X=A^{-1} B$, si $A$ est inversible. Si $A$ n'est pas inversible, la solution est soit l'ensemble vide, soit une infinité de points.

@@ -1,0 +1,78 @@
+\chapter{Équations Différentielles}
+Une équation différentielle est une équation où l'inconnue est une fonction, et qui met en jeu une ou plusieur dérivées de cette fonction. L'ordre de l'équation différentielle correspond à l'ordre de sa plus haute dérivée. La résolution d'une équation différentielle se fait toujours en 2 étapes:
+\begin{enumerate}
+    \item trouver les solutions homogènes (SH). Elles sont obtenues en appliquant les formules ci-dessous sur l'équation sans second membre.
+    \item trouver la solution particulière (SP). Elle s'obtient soit trivialement, soit par soit par supposition heureuse, méthode de la variation de la constante.
+\end{enumerate}
+
+La solution génerale est la somme de SH et de SP.
+%Dans le reste du cours, on ne s'intéressera qu'qux équations différentielles linéaires, c'est-à-dire dont les coefficients devant les dérivées sont des constantes.
+
+\section{Premier ordre}
+
+Ce sont les équations de la forme
+
+$$
+y^{\prime}-a(x) y=b(x)
+$$
+
+avec $a$ et $b$ deux fonctions continues sur un même intervalle $I$.
+L'équation homogène associée s'écrit
+
+$$
+y^{\prime}-a(x) y=0
+$$
+
+\thmr{Solutions homogènes de l'équation du premier ordre}{o1}{
+    $a$ est une constante: $S=\left\{x \mapsto C e^{a x} \mid C \in \mathbb{K}\right\}$;
+
+ $a$ est une fonction de $x$: $S=\left\{x \mapsto C e^{\int a(x) d x} \mid C \in\right. \mathbb{K}\}$.
+
+}
+
+On utilise ensuite la méthode de la variation de la constante. En appelant $y_{S H}=C f(x)$ la solution de l'équation homogène, on pose une nouvelle fonction $g(x)=C(x) f(x)$ que l'on injecte dans l'équation complète. On obtient alors une relation pour la dérivée de la fonction C.
+
+\section{Second ordre}
+
+On considère uniquement les équations à coefficients constants (= équations différentielles linéaires). De manière générale, les équations différentielles linéaires du second ordre ont la forme
+
+$$
+y^{\prime \prime}+a y^{\prime}+b y=g(x)
+$$
+
+L'équation homogène associée est donc
+
+$$
+y^{\prime \prime}+a y^{\prime}+b y=0 .
+$$
+
+\thmr{Solutions homogènes de l'équation du second ordre}{o2}{
+    L'équation caractéristique est définie comme $k^2+a k+b=0$. · cas sont possibles:
+    \begin{itemize}
+        \item Deux racines réelles distinctes $k_1$ et $k_2$, alors
+        $$
+        S=\left\{x \mapsto C_1 e^{k_1 x}+C_2 e^{k_2 x} \mid\left(C_1, C_2\right) \in \mathbb{R}^2\right\} .
+        $$
+        \item Une racine double réelle $k$, alors
+        $$
+        S=\left\{x \mapsto C_1 e^{k x}+C_2 x e^{k x} \mid\left(C_1, C_2\right) \in \mathbb{R}^2\right\} .
+        $$
+        \item Deux racines imaginaires conjuguées $\alpha+i \beta$ et $\alpha-i \beta$, alors
+        $$
+        S=\left\{x \mapsto e^{\alpha x}\left(C_1 \cos \beta x+C_2 \sin \beta x\right) \mid\left(C_1, C_2\right) \in \mathbb{R}^2\right\} .
+        $$
+    \end{itemize}
+
+}
+
+Pour trouver la solution particulière, on essaie différentes choses selon la forme du second membre:
+\begin{itemize}
+    \item Si le second membre est un polynôme, on cherchera une solution particulière sous la forme d'un polynôme de même degré.
+    \item Si le second membre est de la forme $A e^{\lambda x}$, avec $\lambda \in \mathbb{C}$, alors la discussion se porte sur $\lambda$. Est-ce une racine de l'équation caractéristique ? racine simple ou double ? On cherchera alors des solutions sous la forme 
+    \begin{itemize}
+        \item $x \mapsto K e^{\lambda x}$ ( $\lambda$ n'est pas racine)
+        \item $x \mapsto K x e^{\lambda x}$ ( $\lambda$ est racine simple)
+        \item $x \mapsto K x^2 e^{\lambda x}$ ( $\lambda$ est racine double)
+    \end{itemize}
+\end{itemize}
+

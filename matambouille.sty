@@ -1,0 +1,127 @@
+\usepackage{amsmath, amsfonts, amsthm} % collection de symboles mathématiques 
+\usepackage{thmtools}
+\usepackage{framed}
+\usepackage{amssymb} % collection de symboles mathématiques 
+\usepackage{mathrsfs}% comme mathcal
+\usepackage[dvips]{graphicx}
+\usepackage[dvips]{graphics}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{color} % gestion de différentes couleurs 
+\usepackage[justification=centering]{caption}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{psfrag}
+\usepackage{mathenv}
+\usepackage{comment}
+\usepackage{environ}
+\usepackage{tcolorbox}
+\usepackage{tzplot}
+\usepackage{subcaption}
+\usepackage{pgfplots}
+\usepackage{pgfmath}
+\tcbuselibrary{theorems,skins,breakable}
+
+%%%%%%%%% fancy chapters 
+\usepackage[Lenny]{fncychap}
+\usepackage[svgnames]{xcolor} 
+\colorlet{rulecolor}{Gainsboro!40!Lavender}
+% Les têtes de chapitre sont définies ainsi
+%\makeatletter
+%\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+%\def\@makechapterhead#1{%
+%  \vspace*{10\p@}%
+%  {\parindent \z@ \centering \reset@font
+%        {\Huge \scshape \thechapter}
+%        \par\nobreak
+%        \vspace*{10\p@}%
+%        \interlinepenalty\@M
+%        \thickhrulefill
+%        \par\nobreak
+%        \vspace*{2\p@}%
+%        {\Huge \bfseries #1\par\nobreak}
+%        \par\nobreak
+%        \vspace*{2\p@}%
+%        \thickhrulefill
+%    %\vskip 40\p@
+%    \vskip 100\p@
+%  }}
+%\def\@makeschapterhead#1{%
+%  \vspace*{10\p@}%
+%  {\parindent \z@ \centering \reset@font
+%        {\Huge \scshape \vphantom{\thechapter}}
+%        \par\nobreak
+%        \vspace*{10\p@}%
+%        \interlinepenalty\@M
+%        \thickhrulefill
+%        \par\nobreak
+%        \vspace*{2\p@}%
+%        {\Huge \bfseries #1\par\nobreak}
+%        \par\nobreak
+%        \vspace*{2\p@}%
+%        \thickhrulefill
+%    \vskip 100\p@
+%  }}
+
+%\usepackage{cite}
+\usepackage[citestyle=authoryear]{biblatex}
+%[backend=bibtex,bibencoding=ascii,style=authoryear,sorting=none]
+%\addbibresource{PLR_report.bib}
+%\usepackage[round]{natbib}
+%\bibliographystyle{plainnat}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage[breaklinks=true]{hyperref}
+\hypersetup{
+	unicode=true,
+	pdfauthor={},
+	pdfkeywords={},
+	pdftitle={},
+	pdfsubject={},
+	pdfstartview={FitV}, 
+    colorlinks,%
+    citecolor=Bittersweet,%
+    filecolor=blue,%
+    linkcolor=ForestGreen,%
+    urlcolor=blue
+}
+
+\usepackage{psfrag} % remplacement du texte d'une 
+\usepackage[squaren,Gray,cdot]{SIunits}
+
+\usepackage{epsfig}
+\usepackage{amssymb, amsmath}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{enumerate}
+\usepackage{geometry}
+
+\usepackage{fancyhdr}
+\geometry{hmargin=2cm, vmargin=2cm }
+\setlength{\headheight}{13.59999pt}
+\addtolength{\topmargin}{-1.59999pt}
+
+\usepackage{epstopdf}
+
+\graphicspath{ {./figures/} }
+\DeclareCaptionFormat{custom}
+{%
+    \textbf{#1#2}\textit{\small #3}
+}
+\captionsetup{format=custom}
+
+\newcommand{\sign}{\text{sgn}}
+\newcommand{\abs}[1]{\vert #1 \vert}
+\newcommand*{\pd}[3][]{\frac{\partial^{#1} #2}{\partial #3 ^{#1}}} 
+\renewcommand{\headrulewidth}{.4mm} % header line width
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{\large maths @ M1 géosciences}}
+\rhead{\textbf{\large Y. LAPEYRE}}
+\author{Yona Lapeyre}
+\rfoot{\thepage}
