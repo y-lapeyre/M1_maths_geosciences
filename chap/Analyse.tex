@@ -149,6 +149,15 @@ $$
 \forall V \in \mathcal{V}(f(a)),\{x \in E \mid f(x) \in V\} \in \mathcal{V}(a)
 $$
 }
+Ici, $V$ désigne un voisinage de $f(a)$, c'est à dire l'emsemble des réels proches de $f(a)$. Plus précisémment, 
+$V \subseteq \mathbb{R}$ est un voisinage de $x_0 \in \mathbb{R}$ ssi
+
+$$
+\exists \varepsilon>0,] x_0-\varepsilon, x_0+\varepsilon[\subset V .
+$$
+
+
+On note $\mathcal{V}\left(x_0\right)$ l'ensemble des voisinages de $x_0$.
 
 Une fonction est continue sur un intervalle si elle est continue en tout point de cet intervalle. 
 
@@ -221,29 +230,43 @@ $$
 \end{aligned}
 $$
 
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+        \hline $f(x)$ & $D_f$ & $f^{\prime}(x)$ & $D_{f^{\prime}}$ \\
+        \hline $x^n, n \in \mathbb{N}$ & $\mathbb{R}$ & $n x^{n-1}$ & $\mathbb{R}$ \\
+        \hline $\frac{1}{x^n}=x^{-n}, n \in \mathbb{N}^{+}$ & $\mathbb{R}^*$ & $-\frac{n}{x^{n+1}}=-n x^{-n-1}$ & $\mathbb{R}^*$ \\
+        \hline $x^\alpha, \alpha \in \mathbb{R}^{+*}$ & $\mathbb{R}^{+}$ & $\alpha x^{\alpha-1}$ & $\mathbb{R}^{+*}$ \\
+        \hline $e^x$ & $\mathbb{R}$ & $e^x$ & $\mathbb{R}$ \\
+        \hline $\ln |x|$ & $\mathbb{R}^*$ & $\frac{1}{x}$ & $\mathbb{R}^*$ \\
+        \hline $\cos x$ & $\mathbb{R}$ & $-\sin x$ & $\mathbb{R}$ \\
+        \hline $\sin x$ & $\mathbb{R}$ & $\cos x$ & $\mathbb{R}$ \\
+        \hline $\tan x$ & $\mathbb{R} \backslash\left\{\frac{\pi}{2}+\pi \mathbb{Z}\right\}$ & $1+\tan ^2(x)=\frac{1}{\cos ^2(x)}$ & $\mathbb{R} \backslash\left\{\frac{\pi}{2}+\pi \mathbb{Z}\right\}$ \\
+        \hline $\arccos x$ & [-1, 1] & $-\frac{1}{\sqrt{1-x^2}}$ & ] - 1, 1[ \\
+        \hline $\arcsin x$ & [-1, 1] & $\frac{1}{\sqrt{1-x^2}}$ & ] - 1, 1[ \\
+        \hline $\arctan x$ & $\mathbb{R}$ & $\overline{1+x^2}$ & $\mathbb{R}$ \\
+        \hline $\cosh x$ & $\mathbb{R}$ & $\sinh x$ & $\mathbb{R}$ \\
+        \hline $\sinh x$ & $\mathbb{R}$ & $\cosh x$ & $\mathbb{R}$ \\
+        \hline $\tanh x$ & $\mathbb{R}$ & $1-\tanh ^2(x)=\frac{1}{\cosh ^2(x)}$ & $\mathbb{R}$ \\
+        \hline
+        \end{tabular}
+\end{figure}
 
-\begin{tabular}{|l|l|l|l|}
-\hline $f(x)$ & $D_f$ & $f^{\prime}(x)$ & $D_{f^{\prime}}$ \\
-\hline $x^n, n \in \mathbb{N}$ & $\mathbb{R}$ & $n x^{n-1}$ & $\mathbb{R}$ \\
-\hline $\frac{1}{x^n}=x^{-n}, n \in \mathbb{N}^{+}$ & $\mathbb{R}^*$ & $-\frac{n}{x^{n+1}}=-n x^{-n-1}$ & $\mathbb{R}^*$ \\
-\hline $x^\alpha, \alpha \in \mathbb{R}^{+*}$ & $\mathbb{R}^{+}$ & $\alpha x^{\alpha-1}$ & $\mathbb{R}^{+*}$ \\
-\hline $e^x$ & $\mathbb{R}$ & $e^x$ & $\mathbb{R}$ \\
-\hline $\ln |x|$ & $\mathbb{R}^*$ & $\frac{1}{x}$ & $\mathbb{R}^*$ \\
-\hline $\cos x$ & $\mathbb{R}$ & $-\sin x$ & $\mathbb{R}$ \\
-\hline $\sin x$ & $\mathbb{R}$ & $\cos x$ & $\mathbb{R}$ \\
-\hline $\tan x$ & $\mathbb{R} \backslash\left\{\frac{\pi}{2}+\pi \mathbb{Z}\right\}$ & $1+\tan ^2(x)=\frac{1}{\cos ^2(x)}$ & $\mathbb{R} \backslash\left\{\frac{\pi}{2}+\pi \mathbb{Z}\right\}$ \\
-\hline $\arccos x$ & [-1, 1] & $-\frac{1}{\sqrt{1-x^2}}$ & ] - 1, 1[ \\
-\hline $\arcsin x$ & [-1, 1] & $\frac{1}{\sqrt{1-x^2}}$ & ] - 1, 1[ \\
-\hline $\arctan x$ & $\mathbb{R}$ & $\overline{1+x^2}$ & $\mathbb{R}$ \\
-\hline $\cosh x$ & $\mathbb{R}$ & $\sinh x$ & $\mathbb{R}$ \\
-\hline $\sinh x$ & $\mathbb{R}$ & $\cosh x$ & $\mathbb{R}$ \\
-\hline $\tanh x$ & $\mathbb{R}$ & $1-\tanh ^2(x)=\frac{1}{\cosh ^2(x)}$ & $\mathbb{R}$ \\
-\hline
-\end{tabular}
 
 \section{Développements limités}
-\subsection{Définition}
+\subsection{Les notations de Landau}
+Ce sont des notations communément utilisées pour comparer asymptotiquement des expressions. Considérons deux fonctions $f$ et $g$.Vons devez connaître:
 
+\begin{itemize}
+    \item $f(x) = O(g(x))$ : "f est un grand O de g": il existe un certain rang de $x$ à partir duquel $|f(x)| < |g(x)|$.
+    $$\exists k>0, \exists x_0 \forall x>x_0|f(x)| \leq|g(x)| \cdot k$$
+    \item $f(x) = o(g(x))$ : "f est un petit o de g": f est négligeable devant g
+    $$\forall \varepsilon>0 \exists x_0 \forall x>x_0|f(x)| \leq|g(x)| \cdot \varepsilon$$
+    \item $f(x) \sim g(x)$: "f est équivalente à g"
+    $$\forall \varepsilon>0 \exists x_0 \forall x>x_0|f(x)-g(x)|<\varepsilon|g(x)|$$
+\end{itemize}
+
+\subsection{Définition d'un développement limité}
 On dit qu'une fonction $f$ admet un développement limité d'ordre $n$ (abbrégé $D L_n$ ) au voisinage de $x_0$ ssi :
 
 $$
@@ -284,8 +307,6 @@ $$
 \forall x_0 \in \mathbb{R}, \forall x \in \mathbb{R}, f(x)=T_{x_0}^f(x) .
 $$
 
-Pour une fonction de classe $\mathcal{C}^n$
-
 Soient un intervalle $I \subseteq \mathbb{R}$ et $f$ une fonction de classe $\mathcal{C}^n(I)$.
 
 $$
@@ -300,3 +321,22 @@ f\left(x_0+h\right) \approx f\left(x_0\right)+h \frac{\mathrm{~d} f}{\mathrm{~d}
 $$
 
 \subsection{DL usuels}
+
+\begin{align} 
+    e^x & =1+\frac{x}{1!}+\frac{x^2}{2!}+\cdots+\frac{x^n}{n!}+o\left(x^n\right) \\ 
+    \operatorname{ch} x & =1+\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots+\frac{x^{2 n}}{(2 n)!}+o\left(x^{2 n+1}\right) 
+    \\ \operatorname{sh} x & =x+\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots+\frac{x^{2 n+1}}{(2 n+1)!}+o\left(x^{2 n+2}\right) \\
+    \operatorname{th} x & =x-\frac{x^3}{3}+\frac{2}{15} x^5-\frac{17}{315} x^7+o\left(x^8\right) \\
+    \cos x & =1-\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots+(-1)^n \cdot \frac{x^{2 n}}{(2 n)!}+o\left(x^{2 n+1}\right) \\
+    \sin x & =x-\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots+(-1)^n \cdot \frac{x^{2 n+1}}{(2 n+1)!}+o\left(x^{2 n+2}\right) \\
+    \tan x & =x+\frac{x^3}{3}+\frac{2}{15} x^5+\frac{17}{315} x^7+o\left(x^8\right) \\
+    (1+x)^\alpha & =1+\alpha x+\frac{\alpha(\alpha-1)}{2!} x^2+\cdots+\frac{\alpha(\alpha-1) \cdots(\alpha-n+1)}{n!} x^n+o\left(x^n\right)\\
+    \frac{1}{1+x} & =1-x+x^2+\cdots+(-1)^n x^n+o\left(x^n\right) \\
+    \sqrt{1+x} & =1+\frac{x}{2}-\frac{1}{8} x^2+\cdots+(-1)^{n-1} \cdot \frac{1.1 .3 .5 \cdots(2 n-3)}{2^n n!} x^n+o\left(x^n\right) \\
+    \frac{1}{\sqrt{1+x}} & =1-\frac{x}{2}+\frac{3}{8} x^2+\cdots+(-1)^n \cdot \frac{1.3 .5 \cdots(2 n-1)}{2^n n!} x^n+o\left(x^n\right) \\
+    \ln (1+x) & =x-\frac{x^2}{2}+\frac{x^3}{3}+\cdots+(-1)^{n-1} \cdot \frac{x^n}{n}+o\left(x^n\right) \\
+    \operatorname{argth} x & =x+\frac{x^3}{3}+\frac{x^5}{5}+\cdots+\frac{x^{2 n+1}}{2 n+1}+o\left(x^{2 n+2}\right) \\
+    \arctan x & =x-\frac{x^3}{3}+\frac{x^5}{5}+\cdots+(-1)^n \cdot \frac{x^{2 n+1}}{2 n+1}+o\left(x^{2 n+2}\right) \\
+    \operatorname{argsh} x & =x-\frac{1}{2} \frac{x^3}{3}+\frac{3}{8} \frac{x^5}{5}+\cdots+(-1)^n \cdot \frac{1.3 .5 \cdots(2 n-1)}{2^n n!} \frac{x^{2 n+1}}{2 n+1}+o\left(x^{2 n+2}\right) \\
+    \arcsin x & =x+\frac{1}{2} \frac{x^3}{3}+\frac{3}{8} \frac{x^5}{5}+\cdots+\frac{1.3 .5 \cdots(2 n-1)}{2^{2 n+1}}+o\left(x^{2 n+2}\right)
+\end{align}
