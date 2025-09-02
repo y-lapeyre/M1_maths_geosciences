@@ -24,6 +24,21 @@
 \usepackage{pgfmath}
 \tcbuselibrary{theorems,skins,breakable}
 
+%3D
+\usepackage{tikz-3dplot}
+
+%Tikz Library
+\usetikzlibrary{angles, quotes, intersections}
+
+%Styles
+\tikzset{axis/.style={thick,-latex}}
+\tikzset{vec/.style={thick,blue}}
+\tikzset{univec/.style={thick,red,-latex}}
+
+%Notation
+\usepackage{physics}
+\usepackage{bm}
+
 %%%%%%%%% fancy chapters 
 \usepackage[Lenny]{fncychap}
 \usepackage[svgnames]{xcolor} 
@@ -115,7 +130,7 @@
 \captionsetup{format=custom}
 
 \newcommand{\sign}{\text{sgn}}
-\newcommand{\abs}[1]{\vert #1 \vert}
+%\newcommand{\abs}[1]{\vert #1 \vert}
 \newcommand*{\pd}[3][]{\frac{\partial^{#1} #2}{\partial #3 ^{#1}}} 
 \renewcommand{\headrulewidth}{.4mm} % header line width
 

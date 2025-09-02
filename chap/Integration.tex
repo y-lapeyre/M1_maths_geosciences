@@ -96,51 +96,54 @@ $$
 
 \subsection{Existence}
 On ne discutera pas ici tous les critères et théorèmes relatifs à l'existence de l'intégrale d'une fonction sur un intervalle donné, et on s'en tiendra simplement aux points suivants :
-- Si $f$ est une fonction continue sur un intervalle fermé $[a, b]$, on peut calculer sans risque l'intégrale de $f$ sur $[a, b]$.
-- Idem lorsque la fonction $f$ est continue par morceaux sur $[a, b]$.
-- Il faut vérifier l'existence de l'intégrale lorsque $f$ est définie sur un intervalle ouvert par exemple $] a, b$. Tous les cas peuvent se produire ! Exemples :
 
-$$
-\int_0^1 \frac{1}{x} \mathrm{~d} x
-$$
+\begin{itemize}
+    \item Si $f$ est une fonction continue sur un intervalle fermé $[a, b]$, on peut calculer sans risque l'intégrale de $f$ sur $[a, b]$. Idem lorsque la fonction $f$ est continue par morceaux sur $[a, b]$.
+    \item Il faut vérifier l'existence de l'intégrale lorsque $f$ est définie sur un intervalle ouvert par exemple $] a, b]$. Tous les cas peuvent se produire ! Exemples :
 
-diverge, car une primitive de $x \mapsto \frac{1}{x}$ est $x \mapsto \ln (x)$ et : $\forall a>0, \ln (1)-\ln (a)=-\ln (a)$, qui tend vers $+\infty$ lorsque $a$ tend vers 0 . L'intégrale diverge... mais :
+    $$
+    \int_0^1 \frac{1}{x} \mathrm{~d} x
+    $$
+    
+    diverge, car une primitive de $x \mapsto \frac{1}{x}$ est $x \mapsto \ln (x)$ et : $\forall a>0, \ln (1)-\ln (a)=-\ln (a)$, qui tend vers $+\infty$ lorsque $a$ tend vers 0 . L'intégrale diverge... mais :
+    
+    $$
+    \int_0^1 \frac{1}{\sqrt{x}} \mathrm{~d} x
+    $$
+    
+    converge, car une primitive de $x \mapsto \frac{1}{\sqrt{x}}$ est $x \mapsto 2 \sqrt{x}$ et : $\forall a>0,2(\sqrt{1}-\sqrt{a})=2-2 \sqrt{a}$, qui tend vers 2 lorsque $a$ tend vers 0 .
+    
+    $$
+    \int_1^{+\infty} \frac{1}{x^2} \mathrm{~d} x
+    $$
+    
+    converge. En effet, une primitive de $x \mapsto \frac{1}{x^2}$ est $x \mapsto-\frac{1}{x}$. Or : $\forall a>0,-\frac{1}{a}+\frac{1}{1}=1-\frac{1}{a}$ qui tend vers 1 lorsque $a$ tend vers $+\infty$.
+    
+    Pour montrer l'existence dans le cas d'un intervalle ouvert, on peut comme précédemment calculer une primitive de $f$ sur un intervalle fermé puis regarder la limite sur les extrémités ouvertes de l'intervalle. On peut aussi essayer de majorer $|f|$ par une fonction $g$ dont on sait que l'intégrale converge. Par exemple :
+    
+    $$
+    \int_0^{+\infty} \frac{1}{1+x^2} \mathrm{~d} x
+    $$
+    
+    
+    On a : $\forall x>1,\left|\frac{1}{1+x^2}\right|<\frac{1}{x^2}$. Or l'intégrale de $x \mapsto \frac{1}{x^2}$ converge sur [ $1,+\infty$ [ donc l'intégrale de $x \mapsto \frac{1}{1+x^2}$ converge également sur $[1,+\infty[$. Et comme l'intégrale de $x \mapsto \frac{1}{1+x^2}$ converge aussi sur $[0,1]$, elle converge bien sur $[0,+\infty[$.
+    
+    Résultat (à retenir) : L'intégrale :
+    
+    $$
+    \int_0^a \frac{1}{x^\alpha} \mathrm{d} x
+    $$
+    
+    converge si et seulement si $0<\alpha<1$.
+    De même, l'intégrale :
+    
+    $$
+    \int_a^{+\infty} \frac{1}{x^\alpha} \mathrm{d} x
+    $$
+    
+    converge si et seulement si $\alpha>1$.
+\end{itemize}
 
-$$
-\int_0^1 \frac{1}{\sqrt{x}} \mathrm{~d} x
-$$
-
-converge, car une primitive de $x \mapsto \frac{1}{\sqrt{x}}$ est $x \mapsto 2 \sqrt{x}$ et : $\forall a>0,2(\sqrt{1}-\sqrt{a})=2-2 \sqrt{a}$, qui tend vers 2 lorsque $a$ tend vers 0 .
-
-$$
-\int_1^{+\infty} \frac{1}{x^2} \mathrm{~d} x
-$$
-
-converge. En effet, une primitive de $x \mapsto \frac{1}{x^2}$ est $x \mapsto-\frac{1}{x}$. Or : $\forall a>0,-\frac{1}{a}+\frac{1}{1}=1-\frac{1}{a}$ qui tend vers 1 lorsque $a$ tend vers $+\infty$.
-
-Pour montrer l'existence dans le cas d'un intervalle ouvert, on peut comme précédemment calculer une primitive de $f$ sur un intervalle fermé puis regarder la limite sur les extrémités ouvertes de l'intervalle. On peut aussi essayer de majorer $|f|$ par une fonction $g$ dont on sait que l'intégrale converge. Par exemple :
-
-$$
-\int_0^{+\infty} \frac{1}{1+x^2} \mathrm{~d} x
-$$
-
-
-On a : $\forall x>1,\left|\frac{1}{1+x^2}\right|<\frac{1}{x^2}$. Or l'intégrale de $x \mapsto \frac{1}{x^2}$ converge sur [ $1,+\infty$ [ donc l'intégrale de $x \mapsto \frac{1}{1+x^2}$ converge également sur $[1,+\infty[$. Et comme l'intégrale de $x \mapsto \frac{1}{1+x^2}$ converge aussi sur $[0,1]$, elle converge bien sur $[0,+\infty[$.
-
-Résultat (à retenir) : L'intégrale :
-
-$$
-\int_0^a \frac{1}{x^\alpha} \mathrm{d} x
-$$
-
-converge si et seulement si $0<\alpha<1$.
-De même, l'intégrale :
-
-$$
-\int_a^{+\infty} \frac{1}{x^\alpha} \mathrm{d} x
-$$
-
-converge si et seulement si $\alpha>1$.
 
 \subsection{Via une primitive connue}
 
@@ -211,6 +214,50 @@ $$
 En pratique, vous aurez souvent à intégrer des fonctions sur des domaines définis en coordonnées cartésiennes, cylindriques ou sphériques. Soient $(x, y, z) \in \mathbb{R}^3$ les coordonnées d'un point $\mathcal{M}$ dans un repère cartésien. 
 
 \subsection*{coordonnées cylindriques}
+\tdplotsetmaincoords{70}{110}
+\pgfmathsetmacro{\thetavec}{48.17}
+\pgfmathsetmacro{\phivec}{63.5}
+\begin{figure}[H]
+    \centering
+    \tdplotsetmaincoords{70}{110}
+	%
+	\pgfmathsetmacro{\thetavec}{48.17}
+	\pgfmathsetmacro{\phivec}{63.5}
+	%
+	
+	\begin{tikzpicture}[tdplot_main_coords]
+		%Axis
+		\draw[axis] (0,0,0) -- (6,0,0) node [pos=1.1] {$x$};
+		\draw[axis] (0,0,0) -- (0,6,0) node [pos=1.05] {$y$};
+		\draw[axis] (0,0,0) -- (0,0,5.5)  node [pos=1.05] {$z$};   
+		
+		%Help Lines
+		\draw[dashed] (2,4,4) -- (2,4,0);
+		\draw[dashed] (2,0,0) -- (2,4,0) node [pos=-0.1] {$x$};
+		\draw[dashed] (0,4,0) -- (2,4,0) node [pos=-0.35, left] {$y$};
+		\draw[dashed] (0,0,4) -- (2,4,4) node [pos=-0.1] {$z$};
+		\draw[dashed, tdplot_main_coords] (4.47,0,0) arc (0:90:4.47);
+		
+		%Unit Vectors
+		\tdplotsetcoord{P'}{1}{90}{\phivec}
+    	\draw[univec] (2,4,0) -- ($(P')+(2,4,0)$) node [pos=1.3] {$\hat{r}$};
+    	\tdplotsetcoord{P''}{1}{90}{90+\phivec}
+    	\draw[univec] (2,4,0) -- ($(P'') + (2,4,0)$) node [pos=1.3] {$\vu*{\phi}$};
+        \draw[univec] (2,4,0) -- (2, 4, 1) node [pos=1.3] {$\hat{z}$};
+    	
+    	%Vectors
+		\tdplotsetcoord{P}{6}{\thetavec}{\phivec}
+		\draw[vec] (0,0,0) -- (P);
+		\draw[thick] (0,0,0) -- (2,4,0) node [pos=0.6, above] {$r$};
+		
+		%Point
+		\node[fill=black, circle, inner sep=0.8pt] at (2,4,4) {};
+		
+		%Angles
+		\tdplotdrawarc{(0,0,0)}{0.7}{0}{\phivec}{below}{$\phi$}
+		
+	\end{tikzpicture}
+\end{figure}
 Les coordonnées cylindriques de ce point sont définies par le triplet $(r, \theta, z) \in \left.\mathbb{R}^{+},\right]-\pi, \pi[, \mathbb{R}:$
 
 \begin{itemize}
@@ -247,6 +294,51 @@ $$
 \int_{\phi=\phi_1}^{\phi_2} \int_{z=z_1}^{z_2} \int_{r=r_1}^{r_2} f(r, \phi, z) r d r d \phi d z
 $$
 \subsection*{coordonnées sphériques}
+\tdplotsetmaincoords{70}{110}
+\pgfmathsetmacro{\thetavec}{48.17}
+\pgfmathsetmacro{\phivec}{63.5}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[tdplot_main_coords]
+		%Axis
+		\draw[axis] (0,0,0) -- (6.5,0,0) node [pos=1.1] {$x$};
+		\draw[axis] (0,0,0) -- (0,6,0) node [pos=1.05] {$y$};
+		\draw[axis] (0,0,0) -- (0,0,5.5)  node [pos=1.05] {$z$};   
+		
+		%Unit Vectors
+%		\tdplotsetcoord{p}{1}{90}{\phivec}
+%    	\draw[univec] (2,4,0) -- ($(p)+(2,4,0)$) node [pos=1.35] {$\vu*{\varpi}$};
+		\tdplotsetcoord{P'}{7}{\thetavec}{\phivec}
+    	\draw[univec] (0,0,0) -- (P') node [pos=1.05] {$\vu{r}$};
+    	\tdplotsetcoord{P''}{1}{90}{90+\phivec}
+    	\draw[univec] (2,4,0) -- ($(P'') + (2,4,0)$) node [pos=1.3] {$\vu*{\phi}$};
+    	\tdplotsetcoord{P'''}{1}{90+\thetavec}{\phivec}
+    	\draw[univec] (2,4,4) -- ($(P''') + (2,4,4)$) node [pos=1.3] {$\vu*{\theta}$};
+		
+		%Vectors
+		\tdplotsetcoord{P}{6}{\thetavec}{\phivec}
+		\draw[vec] (0,0,0) -- (P) node [midway, above] {$r$};
+		\draw[thick] (0,0,0) -- (2,4,0);
+		
+		%Help Lines
+		\draw[dashed] (2,4,4) -- (2,4,0);
+		\draw[dashed] (2,0,0) -- (2,4,0) node [pos=-0.1] {$x$};
+		\draw[dashed] (0,4,0) -- (2,4,0) node [pos=-0.3] {$y$};
+		\draw[dashed] (0,0,4) -- (2,4,4) node [pos=-0.1] {$z$};
+		\draw[dashed, tdplot_main_coords] (4.47,0,0) arc (0:90:4.47);
+		
+		%Point
+		\node[fill=black, circle, inner sep=0.8pt] at (2,4,4) {};
+		
+		%Angles
+		\tdplotdrawarc{(0,0,0)}{0.7}{0}{\phivec}{below}{$\phi$}
+		 
+	    \tdplotsetthetaplanecoords{\phivec}
+	    \tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{0.5}{0}{\thetavec}{}{}
+	    \node at (0,0.25,0.67) {$\theta$};
+		
+	\end{tikzpicture}
+\end{figure}
 Les coordonnées sphériques de ce point sont définies par le triplet $(r, \theta, \phi) \in \left.\mathbb{R}^{+},\right] 0, \pi[]-,\pi, \pi[:$
 
 \begin{itemize}

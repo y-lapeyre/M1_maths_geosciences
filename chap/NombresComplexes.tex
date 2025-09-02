@@ -8,7 +8,9 @@ z_1 & +z_2=\left(x_1+x_2, y_1+y_2\right) \\
 z_1 & \times z_2=\left(x_1 x_2-y_1 y_2, x_1 y_2+x_2 y_1\right)
 \end{align}
 
-Définissonsle nombre $i$ (parfois noté $j$ en physique) comme le nombre tel que $i^2=-1$. Ainsi, le nombre complexe $z=(x, y) \in \mathbb{R}^2$ peut s'écrire $z=x+i y$. $x$ est appelé partie réelle de $z$, notée $\mathcal{R}(z)$ et $y$ est la partie imaginaire de $z$, notée $\mathcal{I}(z)$. C'est la notation cartésienne. Il peut aussi se noter $z = r \exp(i \theta)$, avec $r$ un nombre réel > 0 appelé module de $z$ et noté $|z|$ et $\theta$ un angle défini à $2\pi$ près, appelé argument de $z$. C'est la notation polaire. On passe facilement d'une notation à l'autre via:
+Définissonsle nombre $i$ (parfois noté $j$ en physique) comme le nombre tel que $i^2=-1$. Ainsi, le nombre complexe $z=(x, y) \in \mathbb{R}^2$ peut s'écrire $z=x+i y$. $x$ est appelé partie réelle de $z$, notée $\mathcal{R}(z)$ et $y$ est la partie imaginaire de $z$, notée $\mathcal{I}(z)$. C'est la notation cartésienne. Il peut aussi se noter $z = r \exp(i \theta)$, avec $r$ un nombre réel > 0 appelé module de $z$ et noté $|z|$ et $\theta$ un angle défini à $2\pi$ près, appelé argument de $z$. C'est la notation polaire. Sans rentrer dans les détails, on définira ici l'exponentielle complexe par $\exp(i \theta) = \cos \theta + i \sin \theta$. $\exp(i \theta)$ conserve les même propriétés que l'exponentielle réelle. Elle n'a simplement pas la même allure.\\
+
+On passe facilement d'une notation à l'autre via:
 
 \begin{align}
     x &= r \cos \theta\\
@@ -17,7 +19,7 @@ Définissonsle nombre $i$ (parfois noté $j$ en physique) comme le nombre tel qu
     \theta &= \arctan2 \left(\frac{y}{x}\right)
 \end{align}
 
-Pour un complexe $z=x+i y$, on défini le complexe conjugué de $z$, noté $\bar{z}$ comme $\bar{z}=x-i y$. On a les propriétés suivantes:
+avec $ \arctan2$ une "version premium" de l'arctangente qui permet de conserver des valeurs entre $-\pi$ et $\pi$. Pour un complexe $z=x+i y$, on défini le complexe conjugué de $z$, noté $\bar{z}$ comme $\bar{z}=x-i y$. On a les propriétés suivantes:
 
 \begin{align} 
     & \overline{\left(\overline{z_1}\right)}=z_{1} \\ 
