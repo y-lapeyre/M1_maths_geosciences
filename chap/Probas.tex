@@ -1,1 +1,196 @@
 \chapter{Probabilités}
+
+\section{Quelques définitions}
+
+Soit ( \(\Omega, \Sigma\) ) un espace dit probabilisable. \(\Omega\) représente l'univers des possibles ou autrement dit l'univers de l'ensemble de tous les événements qu'on peut obtenir avec une épreuve aléatoire. \(\Sigma\) est appelé une tribu de parties de \(\Omega\). Les éléments de \(\Sigma\) sont appelés événements et sont ceux auxquels on peut attribuer une probabilité.\\
+
+Soit \((\Omega, \Sigma)\) un espace probabilisable. Une probabilité sur cet espace est une fonction \(P\) de \(\Sigma\) dans \([0,1]\), appelée loi de probabilité et qui vérifie les propriétés suivantes :
+\[
+P(\Omega)=1,
+\]
+
+Soit ( \(A_{n}\) ) une famille d'événements deux à deux disjoints alors,
+\[
+P\left(\bigcup_{n \in \mathbb{N}} A_{n}\right)=\sum_{n \in \mathbb{N}} P\left(A_{n}\right)
+\]
+
+Le triplet ( \(\Omega, \Sigma, P\) ) est appelé un espace probabilisé. Une probabilité est définie dans \([0,1]\).\\
+
+Le calcul de probabilités est très lié au dénombrement. Supposons que l'univers \(\Omega\) est associé à une épreuve finie dont on veut déterminer la probabilité de réalisation d'un événement \(A\). Si tous les événements de cette épreuve sont équiprobable on peut écrire :
+\[
+P(A)=\frac{\text { Nombre de cas favorables }}{\text { Nombre total de cas }}=\frac{\operatorname{Card}(A)}{\operatorname{Card}(\Omega)}
+\]
+
+\section{Propriétés et formules intéressantes}
+
+Soient \(A\) et \(B\) deux événements :
+
+\begin{itemize}
+    \item \(A \subset B \Rightarrow P(B)=P(A)+P(B \backslash A)\)
+    \item \(P(A \cup B)=P(A)+P(B)-P(A \cap B)\)
+    \item Un événement peut être négligeable, c'est-à-dire de probabilité nulle, dans ce cas on dit que l'événement contraire est presque sûr.
+    \item Formule de Poincarré : probabilité de l'union d'événements dans le cas général
+    \[
+    P\left(\bigcup_{i=1}^{n} A_{i}\right)=\sum_{k=1}^{n}(-1)^{k+1} \sum_{1 \leq 2<\ldots<k \leq n} P\left(A_{1} \cap \ldots \cap A_{k}\right)
+    \]
+    \item Probabilités conditionnelles : Une probabilité conditionnelle est la probabilité d'un événement sachant qu'un autre a eu/aura lieu.
+    
+    Exemple : Vous prenez un avion et un collègue vous dit : "quand on prend l'avion on a 1 chance sur 10000 qu'il y ait une bombe à l'intérieur. Mais on a seulement 1 chance sur 100000000 qu'il y en ait 2. Alors, pour plus de sécurité quand vous prenez l'avion, emportez votre bombe...". Que pensez-vous de ce raisonnement?
+    
+    On note la probabilité que l'événement A se réalise sachant que B s'est réalisé / se réalisera \(P_{B}(A)\) ou \(P(A \mid B)\). Et,
+    \[
+    P_{B}(A)=\frac{P(A \cap B)}{P(B)}
+    \]
+    
+    Très utilisée, la formule de Bayes donne (en considérant que \(P(B)>0\) ):
+    \[
+    P_{B}(A)=\frac{P_{A}(B) P(A)}{P(B)}
+    \]
+    \item événements indépendants : Soient \(A\) et \(B\) deux événements.
+    \[
+    A \text { et } B \text { indépendants } \Leftrightarrow P(A \cap B)=P(A) P(B)
+    \]
+\end{itemize}
+
+\section{Variables aléatoires (v.a.) discrètes}
+
+Une variable aléatoire est une fonction qui associe une certaine valeur au résultat d'une expérience. Par exemple, c'est le gain à un jeu de hasard après un lancer ou après plusieurs lancers successifs. C'est une valeur mesurable associée à chaque éléments de l'ensemble des événements.\\
+
+Exemple : On prend \(\Omega\) l'ensemble des élèves de la classe, \(\Sigma\) l'ensemble des parties (tribu) de \(\Omega\). On peut définir plusieurs variables aléatoires, qui associent chacune une mesure à un élément de l'ensemble des "événements" (ici le choix d'un ou plusieurs élèves) : l'âge, la taille, la capacité en maths, etc.\\
+
+Pour une variable aléatoire établie pour un ensemble probabilisé, on peut alors définir la probabilité que cette variable prenne une certaine valeur ou une certaine gamme de valeurs. Dans notre cas, on se restreindra aux variables discrètes, c'est-à-dire que la variable aléatoire ne prend que des valeurs discrètes. On notera alors \(P(X=B)\) la probabilité que la variable aléatoire \(X\) prenne la valeur \(B\). Quelques définitions:
+
+\begin{itemize}
+    \item Espérance d'une v.a. : Soit \(X\) une variable aléatoire. On définit son espérance comme suit,
+    \[
+    E(X)=\sum_{k} x_{k} P\left(X=x_{k}\right)
+    \]
+    
+    Elle correspond à la moyenne espérée par l'observateur. On verra après qu'elle ne peut pas caractériser à elle seule la loi d'une variable aléatoire.
+    Linéarité de l'espérance : Soient \(X\) et \(Y\) deux v.a. définies sur le même univers et \(a\) et \(b\) deux réels
+    \[
+    E(a X+b Y)=a E(X)+b E(Y)
+    \]
+    \item Variance d'une v.a. : On définit la variance \(V\) d'une v.a. comme l'espérance de l'écart à l'espérance (on veut regarder l'écart à la moyenne espérée). \(\sigma\) est l'écart type de la v.a., son carré est égal à la variance. On écrit donc :
+    \[
+    V(X)=\sigma^{2}=E\left((X-E(X))^{2}\right)=\sum_{k}\left(x_{k}-E(X)\right)^{2} P\left(X=x_{k}\right)=E\left(X^{2}\right)-(E(X))^{2}
+    \]
+    
+    On remarquera que la variance est toujours positive (espérance d'une valeur au carré).
+    Non-inéarité de la variance : Soit \(X\) un v.a. et \(a\) et \(b\) deux réels
+    \[
+    V(a X+b)=a^{2} V(X)
+    \]
+    \item Moment d'une v.a. : On définit le moment d'ordre \(m\) d'une variable aléatoire comme :
+    \[
+    M_{m}(X)=\sum k x_{k}^{m} P\left(X=x_{k}\right)
+    \]
+    \item Covariance d'une v.a. :
+    \[
+    \operatorname{Cov}(X, Y)=E((X-E(X))(Y-E(Y)))
+    \]
+\end{itemize}
+
+\section{Lois usuelles}
+
+Soit \(X\) une variable aléatoire.
+
+\begin{itemize}
+    \item Loi uniforme : \(X\) suit une loi uniforme si elle prend ses valeurs dans \(\Omega=\{1, \ldots, n\}\) avec des probabilités élémentaires identiques. Étant donné que la somme des probabilités de l'univers considéré doit être égale à 1 , on en déduit :
+    \[
+    \forall k=1, \ldots, n, P(X=k)=\frac{1}{n}
+    \]
+    
+    Espérance :
+    \[
+    E(X)=\frac{n+1}{2}
+    \]
+    
+    Variance :
+    \[
+    V(X)=\frac{n^{2}-1}{12}
+    \]
+    
+    Exemple : On lance un dès à 6 faces non-pipé. \(X\) est le résultat de ce lancer. Les résultats possibles sont \(x_{k}=k\) avec \(k=1, \ldots, 6\), et ont tous pour probabilité élémentaire \(\frac{1}{6}\). On peut calculer que \(E(X)=\frac{7}{2}\) et \(V(X)=\frac{35}{12}\).
+    \item Loi de Bernoulli : \(X\) suit une loi de Bernoulli si elle prend comme valeurs 0 ou 1 (par exemple : vrai ou faux, succès ou échec, ...). Un succès correspond à \{ \(X=1\}\), un échec correspond à \(\{X=0\}\). Donc, si on appelle \(p\) la probabilité de succès :
+    \[
+    \begin{gathered}
+    X(\Omega)=\{0,1\} \\
+    P(X=1)=p \\
+    P(X=0)=q=1-p
+    \end{gathered}
+    \]
+    
+    Espérance :
+    \[
+    E(X)=p
+    \]
+    
+    Variance :
+    \[
+    V(X)=p q=p(1-p)
+    \]
+    
+    Remarque : on dit que \(X\) suit une loi de Bernoulli de paramètre \(p\).
+    \item Loi binomiale : \(X\) suit un loi binomiale lorsqu'on répète plusieurs fois et de façon indépendante une épreuve de Bernoulli. \(X\) prend pour valeur le nombre de succès dans une succession de \(n\) épreuves. Pour déterminer la probabilité des événements suivant une loi binomiale il faut donc connaître le nombre combinaisons de \(k\) succès parmi \(n\) épreuves... Puis de le multiplier par les probabilités de succès et d'échec.
+    Remarque : on dit que \(X\) suit une loi binomiale \(\mathcal{B}(n, p)\) à valeurs dans \(X(\Omega)=\{0,1, \ldots, n\}\).
+    \[
+    \begin{gathered}
+    X(\Omega)=\{0,1, \ldots, n\} \\
+    \forall k=0,1, \ldots, n, P(X=k)=\binom{n}{k} p^{k} q^{n-k}
+    \end{gathered}
+    \]
+    
+    Ce qui normalement vous rappelle quelque chose...
+    Espérance :
+    \[
+    E(X)=n p
+    \]
+    
+    Variance :
+    \[
+    V(X)=n p q=n p(1-p)
+    \]
+    \item Loi hypergéométrique : Cette loi décrit un type de situation proche de la loi binomiale à la différence que le tirage se fait sans remise. \(X\) prend toujours pour valeur le nombre de succès (ayant chacun une probabilité \(p\) de se réaliser) dans une succession de \(n\) épreuves. Par contre, la loi hypergéométrique nécessite de connaître le nombre total d'échantillons \(N\) ce qui vient du fait qu'on tire sans remise. La probabilité que \(k\) succès se réalisent dans ses conditions est :
+    \[
+    P(X=k)=\frac{\binom{N p}{k}\binom{N(1-p)}{n-k}}{\binom{N}{n}}
+    \]
+    
+    Remarque : on dit que \(X\) suit une loi hypergéométrique \(\mathcal{H}(N, n, p)\) à valeurs dans \(X(\Omega)= \{0,1, \ldots, n\}\).
+    
+    Espérance : la même que la loi binomiale
+    \[
+    E(X)=n p
+    \]
+    
+    Variance : elle forcément plus petite parce qu'on enlève un élément à chaque tirage
+    \[
+    V(X)=\frac{N-n}{N-1} n p(1-p)
+    \]
+    \item Loi géométrique : Elle prend pour valeur le nombre d'épreuves de Bernoulli indépendantes (càd avec remise) qu'il nécessaire d'effectuer avant d'obtenir un succès (qui a toujours un probabilité \(p\) de se réaliser).
+    
+    Exemple : On tire à pile ou face successivement jusqu'à obtenir "pile". Le nombre d'essai nécessaires est décrit par une loi géométrique.
+    
+    La probabilité d'obtenir un succès à la \(k\)-ème épreuve est :
+    \[
+    P(X=k)=p(1-p)^{k-1}
+    \]
+    
+    On peut s'en convaincre avec un arbre de probabilités.
+    
+    Espérance :
+    \[
+    E(X)=\frac{1}{p}
+    \]
+    
+    Variance :
+    \[
+    V(X)=\frac{q}{p^{2}}=\frac{1-p}{p^{2}}
+    \]
+    \item Loi de Poisson : C'est une loi permettant de modéliser des événements rares (contrôles qualité, accidents, ...). Elle s'apparente à une loi binomiale pour laquelle le nombre d'épreuves (ou effectif) \(n\) est très grand et la probabilité de succès de chaque épreuve (ou d'occurence) \(p\) est très petite \((p<0,1)\). Il en résulte que le produit \(n p\) tend vers une valeur qu'on notera \(\lambda\). \(\lambda\) est le seul paramètre de la loi de Poisson, ainsi que son espérance et sa variance. La probabilité d'avoir \(k\) succès dans ces conditions est :
+    \[
+    P(X=k)=\frac{e^{-\lambda} \lambda^{k}}{k!}
+    \]
+    
+    Remarque : la somme de v.a. de Poisson indépendantes et une v.a. de Poisson (et réciproquement).
+\end{itemize}

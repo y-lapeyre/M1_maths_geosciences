@@ -2,6 +2,11 @@
 
 \section{C'est quoi ?}
 
+
+L'algèbre générale est la branche des mathématiques qui s'intéresse aux ensembles d'objets et aux relations entre ces objets, et entre ces ensembles. Vous avez peut-être entendu parler de la théorie des ensembles, une théorie fondamentale des mathématiques qui construit tous les objets mathématiques que vous connaissez à partir de la notion d'ensemble: magma, monoïde, groupe, corps, algèbres, ...\\
+
+Ici, nous ne plongerons pas dans le monde merveilleux de l'algèbre générale. Nous nous concentrerons sur le petit paradis de l'algèbre linéaire, branche de l'algèbre qui décrit les espaces vectoriels et les transformations qui y ont cours.
+
 \section{Espaces vectoriels}
 \defn{Groupe}{
     Soit $E$ un ensemble muni d'une loi de composition interne  $*$, c'est-à-dire une  application $E \times E \rightarrow E$. On dit que ( $E, *$ ) est un groupe si:
@@ -47,6 +52,22 @@ Un élément d'un espace vectoriel s'appelle un vecteur. Lorsqu'un espace vector
     \end{itemize}
 }
 
+Maintenant quelques définitions concernant les fonctions (on préfèrera ici le terme {\bf application}) qui opèrent entre espaces vectoriels. Ces définitions ne sont pas à connaître par coeur, bien qu'elles aident à y voir plus clair:
+\begin{itemize}
+    \item une {\bf application linéaire} est une application entre deux espaces vectoriels qui préserve l'addition de vecteurs (additivité)et la multiplication par un scalaire (homogénéité):
+    additivité
+    $$
+    \forall(x, y) \in E^2, \quad f(x+y)=f(x)+f(y)
+    $$
+    homogénéité
+    $$
+    \forall \lambda \in \mathbb{K} \quad \forall x \in E, \quad f(\lambda x)=\lambda f(x) .
+    $$
+    L'ensemble des applications linéaires de $E$ vers $F$ est note $L_k(E, F)$
+    \item un {\bf isomorphisme} est une application linéaire bijective
+    \item un {\bf endomorphisme} est une application linéaire de $E$ dans $E$
+    \item un {\bf automorphisme} est un endomorphisme bijectif. On note l'ensemble des automorphismes de $E$ par $Aut(E)$ ou encore $GL_K(E)$
+\end{itemize}
 \section{Applications linéaires et matrices}
 Les applications linéaires sont tout simplement les fonctions allant d'un espace vectoriel à un autre. Les matrices sont tout naturellement des représentations d'applications linéaires dans des bases spécifiques.\\
 
@@ -63,10 +84,7 @@ $$
 $$
 }
 
-
-
-On note $\mathcal{M}_{(n, p)}(\mathbb{K})$ l'ensemble des matrices de rangs ( $n, p$ ) à valeurs dans $\mathbb{K}$. Le Vecteur-colonne d'une matrice est synonyme de colonne de la matrice. De même, le vecteur-ligne d'une matrice est synonyme de ligne de la matrice.
-
+On note $\mathcal{M}_{(n, p)}(\mathbb{K})$ l'ensemble des matrices de rangs ( $n, p$ ) à valeurs dans $\mathbb{K}$. Le {\bf vecteur-colonne} d'une matrice est synonyme de colonne de la matrice. De même, le {\bf vecteur-ligne} d'une matrice est synonyme de ligne de la matrice.\\
 
 Soient $E$ et $F$ deux $\mathbb{K}$-espaces vectoriels de dimensions respectives $p \geq 1$ et $n \geq 1$. Soient $\mathcal{B}=\left(e_1, \ldots, e_p\right)$ et $\mathcal{B}^{\prime}=\left(e_1^{\prime}, \ldots, e_n^{\prime}\right)$ des bases de $E$ et $F$ et soit $f$ une application linéaire de $E$ vers $F$.
 
@@ -77,8 +95,21 @@ f\left(e_j\right)=\alpha_{1 j} e_1^{\prime}+\alpha_{2 j} e_2^{\prime}+\ldots+\al
 $$
 
 
-La matrice $(n, p)$ définie par $M=\left(\alpha_{i j}\right)$ contient donc les coordonnés des images $\left\{f\left(e_1\right), \ldots, f\left(e_p\right)\right\}$ dans la base $\mathcal{B}^{\prime}$ de $F$. On dit que c'est la matrice associée à $f$ relativement aux bases $\mathcal{B}$ et $\mathcal{B}^{\prime}$. On la note $M_{\mathcal{B}, \mathcal{B}^{\prime}}(f)$.
-
+La matrice $(n, p)$ définie par $M=\left(\alpha_{i j}\right)$ contient donc les coordonnés des images $\left\{f\left(e_1\right), \ldots, f\left(e_p\right)\right\}$ dans la base $\mathcal{B}^{\prime}$ de $F$. On dit que c'est la matrice associée à $f$ relativement aux bases $\mathcal{B}$ et $\mathcal{B}^{\prime}$. On la note $M_{\mathcal{B}, \mathcal{B}^{\prime}}(f)$:
+$$
+M_{B, B^{\prime}}(f)=
+    \begin{array}{ccccc}
+    f\left(e_j\right) & &  \\
+    \downarrow & &  &  \\
+    \left(\begin{array}{ccccc}
+    \alpha_{11} & \cdots & \alpha_{1 j} & \cdots & \alpha_{1 p} \\
+    \vdots & & \vdots & & \vdots \\
+    \alpha_{i 1} & \cdots & \alpha_{i j} & \cdots & \alpha_{i p} \\
+    \vdots & & \vdots & & \vdots \\
+    \alpha_{n 1} & \cdots & \alpha_{n j} & \cdots & \alpha_{n p}
+    \end{array}\right) & \leftarrow e_i^{\prime}
+    \end{array}
+   $$
 Si on se donne deux bases $\mathcal{B}$ et $\mathcal{B}^{\prime}$ de $E$ et $F$, une application linéaire est donc entièrement déterminée par sa matrice associée dans ces bases.
 Inversement, on peut toujours voir une matrice comme la matrice d'une certaine application linéaire dans une certaine base de $E$ et de $F$.\\
 
@@ -89,6 +120,10 @@ Remarques importantes:
     \item Lorsque $f$ est un endomorphisme de $E(f: E \rightarrow E)$ alors les bases $\mathcal{B}$ et $\mathcal{B}^{\prime}$ sont confondues, et si $E$ est de dimension $n \in E$ alors la matrice de $f$ dans la base $\mathcal{B}$ est de taille $n \times n$. Si $f$ et $g$ sont deux endormophismes de $E$ de matrices $A$ et $B$, alors l'endomorphisme $f+g$ a pour matrice $A+B$.
 \end{itemize}
 
+Grâce à la représentation matricielle, on peut facilement représenter l'action des application linéaires sur les vecteurs:
+$$
+f(x) = y \Longleftrightarrow M_{B, B^{\prime}}(f) X = Y
+$$
 \section{Manipuler des matrices}
 \subsection{Opérations élémentaires}
 \subsubsection*{Addition}
@@ -108,8 +143,24 @@ On notera dans ce cas $A B=C$. Le produit de deux matrices est non commutatif : 
 \subsubsection*{Transposition}
 la transposée d'une matrice de rang ( $n, p$ ) est une matrice de rang ( $p, n$ ) qui a comme lignes les colonnes de la matrice initiale, et comme colonnes les lignes de la matrice initiale.
 
-\subsection{Déterminant}
-\subsection{Inverse}
+\subsubsection*{Inverse}
+
+Si $A \in M_{n n}$ est inversible, on note $A^{-1}$ "l'inverse de $A$", la matrice telle que $A A^{-1}=I$ et $A^{-1} A=I$.
+
+\subsection{Déterminant et trace}
+La {\bf trace} d'une matrice est la somme de ses coefficients diagonaux. Le determinant d'une matrice est une quantité qui informe sur la nature de la matrice. Par exemple, une matrice est inversible si et seulement si son determinant est non nul. Nous verrons ensemble comment le calculer dans le cas d'une matrice de taille quleconque. Vous devez cependant connaître la formule pour le cas des matrices 2x2:
+
+\thmr{Déterminant d'une matrice 2x2}{2x2}{
+    \begin{align}
+        \det A=a d-b  c
+    \end{align}
+    \begin{equation}
+        A^{-1}=\frac{1}{a t d-b  c}\left[\begin{array}{cc}
+        d & -b \\
+        -c & a
+        \end{array}\right]
+    \end{equation}
+}
 
 
 \section{Lien entre matrices et systèmes linéaires}
@@ -126,9 +177,7 @@ a_{21} x+a_{22} y=b_2
 $$
 
 
-Si $\left(a_{11}, a_{12}\right) \neq(0,0)$ et $\left(a_{21}, a_{22}\right) \neq(0,0)$, alors les solutions sont les coordonnées de l'intersection des deux droites de vecteur directeur $\vec{u}\left(a_{12},-a_{11}\right)$ et $\vec{v}\left(a_{22},-a_{21}\right)$. Si les deux droites sont colinéaires, alors $a_{11} a_{22}-a_{21} a_{12}=0$, c'est à dire le déterminant du système est nul, et les solutions sont donc soit l'ensemble nul, soit une infinité de points. On en déduit que le système admet une solution unique si et seulement si son déterminant est non nul.
-
-Résoudre un tel système revient en fait à résoudre le problème matriciel suivant :
+Si $\left(a_{11}, a_{12}\right) \neq(0,0)$ et $\left(a_{21}, a_{22}\right) \neq(0,0)$, alors les solutions sont les coordonnées de l'intersection des deux droites de vecteur directeur $\vec{u}\left(a_{12},-a_{11}\right)$ et $\vec{v}\left(a_{22},-a_{21}\right)$. Si les deux droites sont colinéaires, alors $a_{11} a_{22}-a_{21} a_{12}=0$, c'est à dire le déterminant du système est nul, et les solutions sont donc soit l'ensemble nul, soit une infinité de points. On en déduit que le système admet une solution unique si et seulement si son déterminant est non nul. Résoudre un tel système revient en fait à résoudre le problème matriciel suivant :
 
 $$
 \left(\begin{array}{ll}
@@ -144,9 +193,7 @@ A X=B
 $$
 
 
-Cela revient à chercher le vecteur $X$ de $\mathbb{R}^2$ qui a pour image $B$ par l'endomorphisme de matrice associée $A$ dans la base canonique.
-
-Pour trouver la solution du problème, c'est-à-dire le vecteur $X=\binom{x}{y}$, on multiplie chaque membre par l'inverse de $A, A^{-1}$, si elle existe, ce qui donne : $A^{-1} A X=A^{-1} B \Longrightarrow X=A^{-1} B$. On remarquera que $A^{-1}$ n'existe que si son déterminant (c'est-à-dire le déterminant du système) est différent de 0 .
+Cela revient à chercher le vecteur $X$ de $\mathbb{R}^2$ qui a pour image $B$ par l'endomorphisme de matrice associée $A$ dans la base canonique. Pour trouver la solution du problème, c'est-à-dire le vecteur $X=\binom{x}{y}$, on multiplie chaque membre par l'inverse de $A, A^{-1}$, si elle existe, ce qui donne : $A^{-1} A X=A^{-1} B \Longrightarrow X=A^{-1} B$. On remarquera que $A^{-1}$ n'existe que si son déterminant (c'est-à-dire le déterminant du système) est différent de 0 .
 
 \subsection{Système $n \times n$}
 
@@ -160,9 +207,13 @@ a_{n 1} x_1 & +\cdots+ & a_{n n} x_n & =b_n
 \end{array}\right.
 $$
 
-- On parle de système homogène pour $\left(b_1, b_2, \cdots, b_p\right)=(0, \cdots, 0)$. Un système homogène admet toujours au moins la solution triviale le n-uplet nul.
-- Pour résoudre le système, on utilisera la méthode du pivot de Gauss, en cherchant à obtenir un système triangulaire (supérieur ou inférieur) en faisant des opérations élémentaires sur les lignes. Les opérations élémentaires possibles sont :
+On parle de système homogène pour $\left(b_1, b_2, \cdots, b_p\right)=(0, \cdots, 0)$. Un système homogène admet toujours au moins la solution triviale le n-uplet nul.
+
+Pour résoudre le système, on utilisera la méthode du pivot de Gauss, en cherchant à obtenir un système triangulaire (supérieur ou inférieur) en faisant des opérations élémentaires sur les lignes. Les opérations élémentaires possibles sont :
+
 - l'échange de deux lignes. qui se note : $L_1 \Leftrightarrow L_2$;
+
 - le remplacement d'une ligne par une combinaison linéaire de l'ensemble des lignes, qui se note : $L_i \Leftarrow \sum_k L_k \lambda_k$. Le coefficient $\lambda_i$ (de la ligne en cours) ne peut pas être nul.
+
 - Mise sous forme matricielle d'un système linéaire: On peut écrire le système linéaire sous la forme d'un produit d'une matrice des coefficients $\left(a_{i j}\right)_{i, j}$ avec le vecteur colonne des inconnues ( $x_i$ ) égal au second membre sous la forme d'un vecteur colonne : $A X=B$, avec : $A=\left(\begin{array}{ccc}a_{11} & +\cdots+ & a_{1 n} \\ \vdots & & \vdots \\ a_{n 1} & +\cdots+ & a_{n n}\end{array}\right), X=\left(\begin{array}{c}x_1 \\ \vdots \\ x_n\end{array}\right)$ et $B=\left(\begin{array}{c}b_1 \\ \vdots \\ b_n\end{array}\right)$.
 On peut ensuite calculer l'inverse de la matrice carrée $A$, si elle existe. Le calcul de cette matrice inverse fait intervenir le calcul du déterminant de $A$, ce qui se fait par transformation sur les lignes de $A$, un peu comme la résolution "à la main" du système. La solution est ensuite donnée par : $X=A^{-1} B$, si $A$ est inversible. Si $A$ n'est pas inversible, la solution est soit l'ensemble vide, soit une infinité de points.

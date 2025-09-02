@@ -1,0 +1,96 @@
+\chapter{Dénombrement}
+
+Le dénombrement est la science de la détermination du nombre d'objets dans un ensemble. Une science voisine est celle de la combinatoire, qui étudie toutes les configurations possibles d'objets dans un ensemble.
+Les exemples classiques de la combinatoire et du dénombrement sont les dés (somme de 3 dés), les cartes à jouer (obtenir 5 cartes rouges, 3 cartes qui se suivent ), et les boules blanches et noires (tirer 4 boules noires à la suite dans un panel de 5 boules blanches et 5 boules noires, avec ou sans remise). Ces 2 disciplines sont utiles en géosciences pour notamment:
+
+\begin{itemize}
+   \item  le calculs de probabilités, traitement de données
+   \item  la paléontologie et évolution : construction d'arbres phylogénétiques
+   \item  la minéralogie : dénombrement du nombre de sites cristallins possibles, dénombrement des modes de vibration
+   \item  la thermodynamique : Calculs d'entropie configurationnelle
+\end{itemize}
+
+
+\section{Définitions}
+
+Un ensemble est, assez simplement, un objet mathématique qui regroupe soit des éléments ayant une caractéristique commune : l'ensemble des fonctions, l'ensemble des nombres réels, l'ensemble des étudiants d'une même classe ; soit des éléments qu'on regroupe arbitrairement : \(\{1,2,3\}\) ou \(\{A, B, C, D\}\). On peut ensuite définir des relations entre les ensembles, entre les éléments des ensembles, etc.\\
+
+Quelques définitions utiles:
+\begin{itemize}
+    \item Ensemble fini : un ensemble fini est un ensemble dont le nombre d'éléments est défini. En particulier, \([1,2]\) ou \(\mathbb{R}\) ne sont PAS des ensembles finis, et \(\{1,2,3\}\) est un ensemble fini (il ne contient que 1,2 et 3 comme éléments).
+    \item Cardinal d'un ensemble $A$ : c'est le nombre d'éléments contenus dans l'ensemble $A$. Il n'est défini que pour un ensemble fini et se note $(\boldsymbol{\text{ C a r d }}(A)$.
+    \item \(x \in A: \mathrm{x}\) appartient à A .
+    \item \(A \subset B\) : A est contenu dans B .
+    \item \(B \backslash A\) : B excluant A .
+    \item \(A \cap B\) : A union \(\mathrm{B}(\mathrm{A}\) et B\()\)
+    \item \(A \cup B\) : A ou B (ou inclusif)
+    \item \(\operatorname{non} A\) : tous les éléments sauf ceux appartenant à A .
+    \item \(\varnothing\) : ensemble vide.
+    \item \(\mathrm{P}(E)\) : ensemble des parties de \(E\). Ce sont tous les sous-ensembles que l'on peut former en prenant des éléments de E , ainsi que l'ensemble vide. Par exemple, \(E=\{0,1\}, \mathrm{P}(E)= \{\varnothing,\{0,1\},\{1\},\{0\}\}\).
+    \item Cardinal de deux ensembles finis :
+    \[
+    \operatorname{Card}(A \cup B)=\operatorname{Card}(A)+\operatorname{Card}(B)-\operatorname{Card}(A \cap B) .
+    \]
+    \item Cardinal de \(n\) ensembles finis : Principle d'inclusion-exclusion (ou formule du crible de Poincaré)
+    Soient \(A_{1}, \ldots, A_{n} n\) ensembles finis. Le cardinal de l'union des \(n\) ensembles s'écrit :
+    \[
+    \operatorname{Card}\left(\bigcup_{i=1}^{n} A_{i}\right)=\sum_{k=1}^{n}\left((-1)^{k-1} \sum_{1 \leq i_{1}<i_{2}<\ldots<i_{k} \leq n} \operatorname{Card}\left(A_{i_{1}} \cap A_{i_{2}} \cap \ldots \cap A_{i_{k}}\right)\right)
+    \]
+\end{itemize}
+
+
+\section{Définitions d'applications}
+\subsection{Permutations - SANS répétition}
+
+Une permutation sans répétition est simplement la disposition de \(n\) objets discernables dans \(n\) cases (ordonnées) avec un objet, et un seul, par case. Le nombre de permutations sans répétition de \(n\) objets est égal à \(n!\).
+On comptera le nombre de permutations sans répétition si le problème se résume à la question suivante: "De combien de façons peut-on disposer \(n\) objets discernables si on a \(n\) places pour les caser ?"\\
+
+Exemple : Pour la permutation de 4 objets dans 4 cases, on a \(: 4\) possibilités pour la première case, 3 pour la deuxième, 2 pour la troisième, et une seule pour la dernière. On aura donc 4! possibilités. C'est utile pour regarder le nombre de mots que l'on peut écrire avec des lettres données.
+
+\subsection{Permutations - AVEC répétition}
+
+On peut avoir des répétitions (certains objets sont indiscernables), dans ce cas on considère les objets tous discernables, puis on divise par le nombre de permutations identiques car non-discernables. Le nombre de permutations de \(\boldsymbol{n}\) éléments pris dans \(\boldsymbol{k}\) classes différentes ( \(k\) est le nombre d'éléments discernables) avec \(n_{1}\) répétitions de la classe \(1, n_{2}\) de la classe \(2, \ldots\) et \(n_{k}\) répétitions de la classe \(k\) est \(: \frac{n!}{n_{1}!n_{2}!\ldots n_{k}!}\).
+À utiliser si le problème se résume à : "De combien de façon peut-on disposer \(n\) objets dans \(n\) cases si parmi les objets certains sont indiscernables ?"\\
+
+Exemple : Considérons l'ensemble \(\{A, A, B, B, B\}\). Si on le considère avec des objets tous discernables, il devient : \(\left\{A_{1}, A_{2}, B_{1}, B_{2}, B_{3}\right\}\). Il y a 5 ! façons de permuter ce deuxième
+ensemble. Comme on a 2 répétitions de \(A\), et 3 répétitions de \(B\), on aura compté 2 ! \(\times 3\) ! fois trop de possibilités. On doit donc avoir pour l'ensemble de départ 5!/(2!3!) \(=10\) permutations possibles (vous pouvez vérifier en les écrivant toutes).
+
+
+\subsection{Arrangements SANS répétitions}
+Un arrangement est un ordonnancement d'éléments sans forcément que le nombre d'éléments colle avec la taille de l'ensemble de départ. Par exemple, un mot MOT est un arrangement (ici sans répétition) des lettres de l'alphabet. MOT est aussi une permutation de l'ensemble \(\{T, O, M\}\), au même titre que TOM et OMT.
+Pour un arrangement, on s'intéressera donc au nombre d'éléments de l'espace de départ ( \(n\) ) mais aussi à la taille de l'arrangement ( \(k\) ).\\
+
+Un arrangement sans répétition est très semblable à une permutation dont on tronquerait les éléments au-dessus de l'élément \(k\). Le nombre d'arrangements sans répétition de \(k\) éléments pris dans \(n\) éléments est donc \(\frac{n!}{(n-k)!}\).
+À utiliser si le problème se résume à : "De combien de façons peut-on disposer \(k\) objets discernables si on a \(k \leq n\) places pour les caser ?"\\
+
+Exemple : Pour considérer le nombre de mots de 3 lettres (sans répétition) dans un alphabet de 5 lettres, on peut construire toutes les permutations de l'alphabet de 5 lettres, et regarder combien ont les mêmes 3 premières lettres. Si on prend \(\{A, B, C, D, E\}\) comme alphabet, le mot \(\{A, B, C\}\) apparaîtra deux fois dans les permutations car on peut permuter \(\{D, E\}\) de 2! façons. Donc on a 5!/2! mots de 3 lettres sans répétitions.
+
+
+
+\subsection{Arrangements AVEC répétitions}
+
+Pour un arrangement avec répétitions de k éléments parmi n , la seule chose importante est l'ordonnancement. Pour chaque case, on peut choisir parmi les n objets de l'ensemble de départ. Le nombre d'arrangements avec répétition de \(k\) éléments pris dans \(n\) éléments est donc \(n^{k}\). À utiliser si le problème se résume à : "De combien de façons peut-on disposer \(k\) objets choisis parmi \(n\) objets lors d'un tirage avec remise ?"\\
+
+Exemple : Le nombre de mots (sans question d'orthographe ou de prononciation, évidemment) que l'on peut créer avec 3 lettres différentes est simplement \(3 \times 3 \times 3=27\). \\
+
+
+\subsection{Combinaisons SANS répétition}
+
+Contrairement aux arrangements (et aux permutations, qui sont des cas particuliers des arrangements), les combinaisons sont des dispositions d'objets qui ne tiennent pas compte de l'ordre de placement de ces objets. C'est le cas par exemple quand on tire de façon simultanée des objets (des cartes, des boules de couleur, des dés) et que donc on ne peut décider lequel a été fait en premier.
+Une combinaison sans répétition est en fait une partie de l'ensemble de départ. Pour calculer le nombre de parties de k éléments, on peut calculer le nombre d'arrangements à k éléments
+\((\mathrm{n}!/(\mathrm{n}-\mathrm{k})!)\), puis diviser par le nombre d'ordonnancement possibles ( \(\mathrm{k}!\) ).
+
+On notera le nombre de parties à k éléments dans un ensemble de n élément comme " k parmi n", le coefficient binomial, qui est noté :
+\[
+\binom{n}{k}=\frac{n!}{k!(n-k)!}=C_{n}^{k}
+\]
+
+La question relative a ce cas est la suivante : "Combien de tirages sans remise de \(k\) objets parmi \(n\) peut-on faire si on oublie l'ordre des tirages ?"
+
+\subsection{Combinaisons AVEC répétition}
+La question relative a ce cas est la suivante : "Combien de tirages avec remise de \(k\) objets parmi \(n\) peut-on faire si on oublie l'ordre des tirages ?" :
+\[
+\Gamma_{n}^{k}=\binom{n+k-1}{k}=C_{n+k-1}^{k}
+\]
+
+Nous ne nous attarderons pas plus sur ce cas.
