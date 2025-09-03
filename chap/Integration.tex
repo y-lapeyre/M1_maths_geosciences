@@ -127,9 +127,11 @@ On ne discutera pas ici tous les critères et théorèmes relatifs à l'existenc
     
     
     On a : $\forall x>1,\left|\frac{1}{1+x^2}\right|<\frac{1}{x^2}$. Or l'intégrale de $x \mapsto \frac{1}{x^2}$ converge sur [ $1,+\infty$ [ donc l'intégrale de $x \mapsto \frac{1}{1+x^2}$ converge également sur $[1,+\infty[$. Et comme l'intégrale de $x \mapsto \frac{1}{1+x^2}$ converge aussi sur $[0,1]$, elle converge bien sur $[0,+\infty[$.
-    
-    Résultat (à retenir) : L'intégrale :
-    
+\end{itemize}
+
+\thmr{Convergence d'intégrales de puissances}{intpuiss}{
+    L'intégrale :
+
     $$
     \int_0^a \frac{1}{x^\alpha} \mathrm{d} x
     $$
@@ -142,8 +144,7 @@ On ne discutera pas ici tous les critères et théorèmes relatifs à l'existenc
     $$
     
     converge si et seulement si $\alpha>1$.
-\end{itemize}
-
+}
 
 \subsection{Via une primitive connue}
 
@@ -201,7 +202,8 @@ $$
 
 Cette méthode permet de déplacer le calcul de l'intégrale sur celui de l'intégrale d'une autre fonction dont la primitive est connue.
 
-\section{Intégrale multiple}
+\section{Fontction de plusieurs variables}
+\subsection{Intégrale multiple}
 
 \thmr{Fubini}{fubini}{
 Si $f$ est continue de $[a, b] \times[c, d]$ dans $\mathbb{R}$ alors :
@@ -373,4 +375,54 @@ Donc si l'on veut intégrer la fonction $f(r, \theta, \phi)$ dans le domaine $\l
 
 $$
 \int_{\phi=\phi_1}^{\phi_2} \int_{\theta=\theta_1}^{\theta_2} \int_{r=r_1}^{r_2} f(r, \theta, \phi) r^2 \sin (\theta) d r d \theta d \phi
+$$
+
+\subsection{Dérivées partielles}
+
+\defn{Dérivée partielle d'ordre 1}{
+    Soit $f$ une fonction de $n$ variables, définie et dérivable sur $E \subset \mathbb{R}^n$. La dérivée partielle de $f$ par rapport à $x_i$ avec $i \in\{1, . ., n\}$ est la fonction définie par: $\forall\left(a_1, \ldots, a_n\right) \in E$,
+
+$$
+\frac{\partial f}{\partial x_i}\left(a_1, \ldots, a_i, \ldots, a_n\right)=\lim _{x_i \rightarrow a_i} \frac{f\left(a_1, \ldots, x_i, \ldots, a_n\right)-f\left(a_1, \ldots, a_i, \ldots, a_n\right)}{x_i-a_i}
+$$
+}
+
+En pratique: elle se calcule en considérant toutes les autres variables comme des constantes. On peut également la noter $\partial_{x_i} f\left(a_1, \ldots, a_i, \ldots, a_n\right)$\\
+
+De la même façon que l'on définit les dérivées premières $f^{\prime}$, seconde $f^{\prime \prime}$, troisième $f^{\prime \prime \prime}$ dune fonction f d'une seule variable, on peut définir les dérivées premières, secondes, n-ièmes d'une fonction de plusieurs variables. Par exemple, pour une fonction $f: x \mapsto f(x, y)$ de deux variables, ses dérivées premières sont:
+
+\begin{itemize}
+    \item $\frac{\partial f}{\partial x}(x, y)=\partial_x f(x, y)$
+    \item $\frac{\partial f}{\partial y}(x, y)=\partial_y f(x, y)$
+    \item s dérivées secondes sont:
+    \item $\frac{\partial}{\partial x}\left(\frac{\partial f}{\partial x}\right)(x, y)=\frac{\partial^2 f}{\partial x^2}(x, y)=\partial_{x^2} f(x, y)$
+    \item $\frac{\partial}{\partial y}\left(\frac{\partial f}{\partial y}\right)(x, y)=\frac{\partial^2 f}{\partial y^2}(x, y)=\partial_{y^2} f(x, y)$
+    \item $\frac{\partial}{\partial x}\left(\frac{\partial f}{\partial y}\right)(x, y)=\frac{\partial^2 f}{\partial x \partial y}(x, y)=\partial_{x y} f(x, y)$
+    \item $\frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right)(x, y)=\frac{\partial^2 f}{\partial y \partial x}(x, y)=\partial_{y x} f(x, y)$
+\end{itemize}
+
+
+\thmr{ Théorème de Schwartz}{schwartz}{
+    Si $f$ est une fonction de $\mathbb{R}^2$ dans $\mathbb{R}$, de classe $\mathcal{C}^2$ sur un ouvert $U$, alors, en tout point de $U$, on a:
+$$
+\frac{\partial^2 f}{\partial x \partial y}=\frac{\partial^2 f}{\partial y \partial x}
+$$
+}
+
+\defn{formes différentielles}{
+    Soit une fonction $f$ de classe $\mathcal{C}^1(U)$ (définie, continue, dérivable et de dérivée continue sur l'ensemble $U$ ), alors, $\forall a \in U, f$ est différentiable en $a$.
+Soit $f: U \subset \mathbb{R}^n \rightarrow \mathbb{R}$ une fonction de $n$ variables. Si f est différentiable en $a=\left(a_1, . ., a_n\right) \in U$ alors sa forme différentielle en $a$ est elle même une fonction de plusieurs variables définie par:
+
+$$
+\begin{array}{lrl}
+\mathrm{d} f_a: & U & \rightarrow \mathbb{R} \\
+& \left(d x_1, \ldots, d x_n\right) & \mapsto \sum_{i=1}^n \frac{\partial f}{\partial x_i}\left(a_1, . ., a_n\right) d x_i
+\end{array}
+$$
+}
+
+Exemple: Si $\forall(x, y) \in \mathbb{R}^2, f(x, y)=x y^2$, alors:
+
+$$
+\mathrm{d} f_{x, y}(d x, d y)=y^2 \mathrm{~d} x+2 x y \mathrm{~d} y
 $$
